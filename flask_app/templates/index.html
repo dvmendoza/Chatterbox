@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,800&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../static/style.css">
+  <title>Chatterbox</title>
+</head>
+<body>
+  <div class="cont">
+    <div class="form sign-in">
+      <h2 class="title">Chatterbox</h2>
+      <form action="/login" method="post">
+            <label for="log_email" class="form-label">
+                Email Address
+                <input type="text" name="log_email" id="log_email" class="form-control">
+            </label>
+
+           <label for="log_password" class="form-label">
+            Password
+            <input type="password" name="log_password" id="log_password" class="form-control">
+           </label>
+           <input type="submit" class="submit" value="Sign In">
+        </form>
+      <p class="forgot-pass">Forgot Password ?</p>
+
+        <div class="social-media">
+            <ul>
+            <li><img src="../static/images/facebook.png"></li>
+            <li><img src="../static/images/twitter.png"></li>
+            <li><img src="../static/images/google.png"></li>
+            <li><img src="../static/images/instagram.png"></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="sub-cont">
+      <div class="img">
+        <div class="img-text m-up">
+          <h2>New here?</h2>
+          <p>Sign up and connect with friends or meet new ones!</p>
+        </div>
+        <div class="img-text m-in">
+          <h2>Already a Chatter?</h2>
+          <p>If you already have an account, just sign in. We've missed you!</p>
+        </div>
+        <div class="img-btn">
+          <span class="m-up">Sign Up</span>
+          <span class="m-in">Sign In</span>
+        </div>
+      </div>
+      <div class="form sign-up">
+        <h2>Sign Up</h2>
+        <label>
+          <span>First Name</span>
+          <input type="text">
+        </label>
+        <label>
+            <span>Last Name</span>
+            <input type="text">
+        </label>
+        <label>
+          <span>Email</span>
+          <input type="email">
+        </label>
+        <label>
+          <span>Password</span>
+          <input type="password">
+        </label>
+        <label>
+          <span>Confirm Password</span>
+          <input type="password">
+        </label>
+        <button type="button" class="submit">Sign Up Now</button>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="../static/script.js"></script>
+</body>
+</html>
+
