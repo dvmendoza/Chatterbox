@@ -12,18 +12,36 @@
   <div class="cont">
     <div class="form sign-in">
       <h2 class="title">Chatterbox</h2>
+      {% with messages = get_flashed_messages(with_categories = True) %} 
       <form action="/login" method="post">
-            <label for="log_email" class="form-label">
-                Email Address
-                <input type="text" name="log_email" id="log_email" class="form-control">
-            </label>
+        <div class="mb-3">
+          <label for="log_email" class="form-label">Email</label>
+          <input type="text" name="log_email" id="log_email" class="form-control">
+          {% if messages %}
+          {% for category, message in messages %}
+              {% if category == 'log_email' %}
+                  <span class="form-text text-danger">{{message}}</span>
+              {% endif %}
+          {% endfor %}
+      {% endif %}
+      </div>
+      <div class="mb-3">
+          <label for="log_password" class="form-label">Password</label>
+          <input type="password" name="log_password" id="log_password" class="form-control">
+          {% if messages %}
+          {% for category, message in messages %}
+              {% if category == 'log_email' %}
+                  <span class="form-text text-danger">{{message}}</span>
+              {% endif %}
+          {% endfor %}
+      {% endif %}
+      </div>
+      <div class="d-flex justify-content-end">
+          <input type="submit" value="Sign In" class="button">
+      </div>
 
-           <label for="log_password" class="form-label">
-            Password
-            <input type="password" name="log_password" id="log_password" class="form-control">
-           </label>
-           <input type="submit" class="submit" value="Sign In">
         </form>
+        {% endwith %}
       <p class="forgot-pass">Forgot Password ?</p>
 
         <div class="social-media">
@@ -53,28 +71,73 @@
       </div>
       <div class="form sign-up">
         <h2>Sign Up</h2>
-        <label>
-          <span>First Name</span>
-          <input type="text">
-        </label>
-        <label>
-            <span>Last Name</span>
-            <input type="text">
-        </label>
-        <label>
-          <span>Email</span>
-          <input type="email">
-        </label>
-        <label>
-          <span>Password</span>
-          <input type="password">
-        </label>
-        <label>
-          <span>Confirm Password</span>
-          <input type="password">
-        </label>
-        <button type="button" class="submit">Sign Up Now</button>
+
+        {% with messages = get_flashed_messages(with_categories = True) %} 
+        <form action="/register" method="post">
+
+          <div class="mb-3">
+            <label for="first_name" class="form-label">First Name</label>
+            <input type="text" name="first_name" id="first_name" class="form-control">
+            {% if messages %}
+              {% for category, message in messages %}
+                {% if category == 'first_name' %}
+                  <span class="form-text text-danger">{{message}}</span>
+                {% endif %}
+              {% endfor %}
+            {% endif %}
+          </div>
+
+          <div class="mb-3">
+            <label for="last_name" class="form-label">Last Name</label>
+            <input type="text" name="last_name" id="last_name" class="form-control">
+            {% if messages %}
+                {% for category, message in messages %}
+                    {% if category == 'last_name' %}
+                        <span class="form-text text-danger">{{message}}</span>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="text" name="email" id="email" class="form-control">
+            {% if messages %}
+                {% for category, message in messages %}
+                    {% if category == 'email' %}
+                        <span class="form-text text-danger">{{message}}</span>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" name="password" id="password" class="form-control">
+            {% if messages %}
+                {% for category, message in messages %}
+                    {% if category == 'password' %}
+                        <span class="form-text text-danger">{{message}}</span>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+          </div>
+          <div class="mb-3">
+            <label for="password_confirmation" class="form-label">Confirm Password</label>
+            <input type="password" name="password_confirmation" id="password_confirmation" class="form-control">
+            {% if messages %}
+                {% for category, message in messages %}
+                    {% if category == 'password_confirmation' %}
+                        <span class="form-text text-danger">{{message}}</span>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+          </div>
+          
+          <input type="submit" value="Sign Up Now" class="button">
+        
+
       </div>
+      </form>
+      {% endwith %}
     </div>
   </div>
   <script type="text/javascript" src="../static/script.js"></script>
